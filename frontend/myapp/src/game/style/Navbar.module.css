@@ -1,0 +1,118 @@
+.Navbar{
+    margin: auto;
+    width: 98%;
+    height: 70px;
+    z-index: 1000;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+.Logo{
+    margin-left: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 35px;
+    background-color: yellowgreen;
+}
+.LogoImage{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    
+}
+@media (prefers-reduced-motion: no-preference) {
+    .Logo {
+      animation: logo-spin infinite 20s linear;
+    }
+}
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  .Loginbtn{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    width: 150px;
+    margin-right: 10px;
+  }
+  .Loginbtn>button{
+
+    background-color:white;
+    color: dodgerblue;
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .Logoutbtn{
+    height: 70px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+  }
+  .Logoutbtn>button{
+    height: 50px;
+    background-color:dodgerblue;
+    color:white;
+    border-radius: 10px;
+    border: 0;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .Logoutbtn>button:hover , .Loginbtn>button:hover{
+    opacity: 0.5;
+  }
+  .ulD{
+  
+    list-style: none;
+    width: 150px;
+    height: 70px;
+  }
+  .liD{
+    text-align: center;
+    position: relative;
+    
+    color: blue;
+    width: 150px;
+    height: 70px;
+    left: 0;
+    line-height: 70px;
+  }
+  .liD:hover .ulDd{
+    display: block;
+  }
+  .ulDd{
+    display: none;
+    position:absolute;
+    list-style: none;
+    
+    left: 0;
+    width: 150px;
+  }
+.liDd{
+    position: relative;
+    left: 0;
+}
+.Logout{
+    width: 150px;
+    height: 70px;
+    border: 0;
+    background-color: whitesmoke;
+   color: dodgerblue;
+   font-weight: bold;
+   font-size: 18px;
+}
+.Logout:hover{
+
+    background-color: black;
+    color: yellowgreen;
+}
