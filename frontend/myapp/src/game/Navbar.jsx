@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles  from './style/Navbar.module.css'
 import logo from '../assets/tttlogo.webp'
+import Modal from './Modal'
 const Navbar = () => {
     const [isauth,setisauth] = useState(true)
+    const [show,setShow] = useState(false)
+    useEffect(()=>{
+           console.log(show) 
+    },[])
+    console.log(show) 
   return (
     <div className={styles.Navbar}>
         <div className={styles.Logo}>
@@ -10,9 +16,9 @@ const Navbar = () => {
         </div>
         {isauth ? 
        <div className={styles.Loginbtn}>
-             <button>Login</button>
+             <button onClick={()=>setShow(true)}>Login</button>
              <p>|</p>
-             <button>Signup</button>
+             <button onClick={()=>setShow(true)}>Signup</button>
               </div>:
         <div className={styles.Logoutbtn}>
             <ul className={styles.ulD}>
@@ -27,6 +33,12 @@ const Navbar = () => {
              {/* <button>Logout</button> */}
         </div>
         }
+        {/* {show ? */}
+         {/* <div className={styles.Popup}> */}
+        <Modal show={show} onClick={() => setShow(false)}/>
+        {/* </div> */}
+         {/* :""} */}
+
     </div>
   )
 }
