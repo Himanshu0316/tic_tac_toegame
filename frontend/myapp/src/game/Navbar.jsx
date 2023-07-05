@@ -5,6 +5,7 @@ import Modal from './Modal'
 const Navbar = () => {
     const [isauth,setisauth] = useState(true)
     const [show,setShow] = useState(false)
+    const [page,setPage] = useState(false)
     useEffect(()=>{
            console.log(show) 
     },[])
@@ -16,9 +17,9 @@ const Navbar = () => {
         </div>
         {isauth ? 
        <div className={styles.Loginbtn}>
-             <button onClick={()=>setShow(true)}>Login</button>
+             <button onClick={()=>{setShow(true); setPage(true);} }>Login</button>
              <p>|</p>
-             <button onClick={()=>setShow(true)}>Signup</button>
+             <button onClick={()=>{setShow(true); setPage(false);}}>Signup</button>
               </div>:
         <div className={styles.Logoutbtn}>
             <ul className={styles.ulD}>
@@ -35,7 +36,7 @@ const Navbar = () => {
         }
         {/* {show ? */}
          {/* <div className={styles.Popup}> */}
-        <Modal show={show} onClick={() => setShow(false)}/>
+        <Modal show={show} setPage={setPage} onClick={() => setShow(false)} page={page}/>
         {/* </div> */}
          {/* :""} */}
 

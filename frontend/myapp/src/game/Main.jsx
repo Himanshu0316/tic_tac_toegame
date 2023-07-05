@@ -11,7 +11,7 @@ const Main = () => {
       <div className={styles.Mainbox}>
       <h1 className={styles.h1Tag}>hiii</h1>
       <div>
-        <h1>hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</h1>
+        <h1>hhhhhhhhhhhh</h1>
       </div>
       </div>
     </div>
