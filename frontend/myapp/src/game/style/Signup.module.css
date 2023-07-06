@@ -1,0 +1,113 @@
+.Auth{
+    
+    margin: auto;
+    margin-top: 10px;
+    width: 80%;
+
+}
+.Flex{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.Btncont{
+    
+    margin-top: 20px;
+    width: 90%;
+    color: white;
+    background-color: orange;
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+.Btncont:hover{
+   outline: 2px solid orange;
+   border: 2px solid white;
+}
+.h2Tag{
+    text-align: left;
+    margin: 0;
+    font-weight: 700;
+    font-size: 30px;
+}
+.p1Tag{
+    font-size: 12px;
+    color: #616161;
+}
+.Inputdiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #edf2f7;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+}
+.iptMain{
+    width: 90%;
+    margin-top: 20px;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+.Labal{
+    margin-bottom: 5px;
+    color: #616161;
+    
+}
+.Inputdiv>input{
+    width: 90%;
+    height: 30px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    font-style: oblique;
+    text-align: center;
+}
+.Inputdiv>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    min-width: 40px;
+    width: 10%;
+    height: 35px;
+    border: 0;
+    background-color: #edf2f7;
+    outline: 1px solid #edf2f7;
+}
+.Msg{
+    font-size:12px;
+    color:#d50000;
+    margin-top: 0;
+
+}
+.Terms{
+    margin: auto;
+    margin-left: 0;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 90%;
+}
+.termPtag{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.Span{
+    color:#ff6f61;
+    font-weight:bold;
+    cursor:pointer;
+    padding-left: 5px;
+}
+

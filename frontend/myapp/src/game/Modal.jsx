@@ -4,8 +4,10 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import Login from './Login';
 import Signup from './Signup';
 const Modal = ({show,onClick,page,setPage}) => {
-    
-   //  const [open, setOpen] = useState(s);
+  const [successful, setSuccessful] = useState(false);
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
+   //const [open, setOpen] = useState(s);
    useEffect(()=>{
 
    },[])
@@ -14,9 +16,19 @@ const Modal = ({show,onClick,page,setPage}) => {
     <div className={show ? styles.Modal : styles.Modalclose} >
       <AiFillCloseCircle onClick={onClick} className={styles.closeIcon}/>
            {page ? ( 
-               <Login setPage={setPage}/>
+               <Login 
+               setPage={setPage}
+               initialRef={initialRef}
+               finalRef={finalRef}
+               setSuccessful={setSuccessful}
+               />
            ): (
-            <Signup setPage={setPage}/>
+            <Signup 
+            setPage={setPage}
+            initialRef={initialRef}
+            finalRef={finalRef}
+            setSuccessful={setSuccessful}
+            />
             )}
 
     </div>
