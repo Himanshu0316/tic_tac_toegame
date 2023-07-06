@@ -64,6 +64,10 @@ const Stage1 = ({
   };
   const handleSendOtp = (e) => {
     e.preventDefault();
+    setLoading(true)
+    setInterval(()=>{
+      console.log("hii")
+    },5000)
    
   };
 
@@ -115,7 +119,7 @@ const Stage1 = ({
             className={styles.Btncont}
 
           >
-            CONTINUE
+           {loading ? "CONTINUE..." : "SIGNUP"}
           </button>
         </div>       
           <div  className={styles.Terms}>
