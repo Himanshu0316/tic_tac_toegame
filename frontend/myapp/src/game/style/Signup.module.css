@@ -25,6 +25,9 @@
     font-weight: bold;
     
 }
+.Btnfill{
+    margin-bottom: 20px;
+}
 .Btncont:hover{
    outline: 2px solid orange;
    border: 2px solid white;
@@ -70,6 +73,15 @@
     font-size: 18px;
     font-style: oblique;
     text-align: center;
+}
+.Inputs{
+    width: 90%;
+    height: 30px;
+    border: 0;
+    outline: 1px solid #edf2f7;
+    font-size: 18px;
+    font-style: oblique;
+    text-align: center; 
 }
 .Inputdiv>div{
     display: flex;

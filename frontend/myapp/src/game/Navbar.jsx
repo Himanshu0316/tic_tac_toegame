@@ -36,7 +36,7 @@ const Navbar = () => {
         }
         {/* {show ? */}
          {/* <div className={styles.Popup}> */}
-        <Modal show={show} setPage={setPage} onClick={() => setShow(false)} page={page}/>
+        <Modal show={show} setShow={setShow} setPage={setPage} onClick={() => setShow(false)} page={page}/>
         {/* </div> */}
          {/* :""} */}
 

@@ -3,10 +3,18 @@ import styles from './style/Modal.module.css';
 import { AiFillCloseCircle } from "react-icons/ai";
 import Login from './Login';
 import Signup from './Signup';
-const Modal = ({show,onClick,page,setPage}) => {
+const Modal = ({setShow,show,onClick,page,setPage}) => {
   const [successful, setSuccessful] = useState(false);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
+  useEffect(() => {
+    if (successful) {
+      setTimeout(() => {
+        setShow(false)
+        setSuccessful(false);
+      }, 3000);
+    }
+  }, [successful]);
    //const [open, setOpen] = useState(s);
    useEffect(()=>{
 

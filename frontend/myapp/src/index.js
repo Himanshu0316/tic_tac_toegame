@@ -7,13 +7,16 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
 import axios from "axios";
+axios.defaults.baseURL = "https://tatabackend.vercel.app"; //new
+// axios.defaults.baseURL = "http://localhost:8080/";
+axios.defaults.headers["Content-Type"] = "application/json";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
    <BrowserRouter>
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
         <App />
-      {/* </Provider> */}
+      </Provider>
     </BrowserRouter>
   </React.StrictMode> 
 );
