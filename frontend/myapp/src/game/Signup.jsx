@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import OTPInput from "react-otp-input";
+import './style/Otp.css';
 import styles from './style/Signup.module.css';
 import axios from 'axios';
 import { auth } from "../firebase/config";
@@ -31,24 +33,24 @@ const Signup = ({ setPage, initialRef, finalRef, setSuccessful }) => {
           initialRef={initialRef}
           finalRef={finalRef}
         />
-      ) : 
-      stage == 2 ? (
-        <Stage2
-          userDetails={userDetails}
-          setUserDetails={setUserDetails}
-          userNumber={userNumber}
-          setStage={setStage}
-          result={result}
-          setSuccessful={setSuccessful}
-        />
-      ) : (
-        <Stage3
-          userDetails={userDetails}
-          setUserDetails={setUserDetails}
-          setSuccessful={setSuccessful}
-        />
-        
-      )}
+      ) :
+        stage == 2 ? (
+          <Stage2
+            userDetails={userDetails}
+            setUserDetails={setUserDetails}
+            userNumber={userNumber}
+            setStage={setStage}
+            result={result}
+            setSuccessful={setSuccessful}
+          />
+        ) : (
+          <Stage3
+            userDetails={userDetails}
+            setUserDetails={setUserDetails}
+            setSuccessful={setSuccessful}
+          />
+
+        )}
     </div>
   )
 }
@@ -95,6 +97,7 @@ const Stage1 = ({
           .then((res) => {
             if (res.data.status == true) {
               setMessage(res.data.message);
+              
               setInvalid(true);
               setLoading(false);
             } else {
@@ -103,6 +106,7 @@ const Stage1 = ({
           })
           .catch(() => {
             setLoading(false);
+            console.log("hii")
           });
       }
     }
@@ -125,7 +129,9 @@ const Stage1 = ({
     // e.preventDefault();
     // setupRecaptcha();
     const phoneNumber = `+91${userDetails.mobile}`;
+    console.log(auth)
     const appVerifier = window.recaptchaVerifier;
+    console.log(appVerifier,phoneNumber)
     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
       .then((confirmationResult) => {
         // SMS sent. Prompt user to type the code from the message, then sign the
@@ -152,7 +158,7 @@ const Stage1 = ({
     <div>
       <div id="recaptcha-container"></div>
       <form onSubmit={handleSendOtp}>
-      
+
         <div className={styles.Flex}>
           <div >
 
@@ -168,7 +174,7 @@ const Stage1 = ({
             <label className={styles.Labal}>Enter Mobile Number</label>
             <div className={styles.Inputdiv}>
               <div children="+91" ></div>
-              
+
               <input
                 ref={initialRef}
                 value={userDetails.mobile}
@@ -186,7 +192,7 @@ const Stage1 = ({
           >
 
             {message
-              ? "hii"
+              ? message
               : "Please enter a valid 10 digit Mobile Number"}
           </p>
           <button
@@ -196,24 +202,24 @@ const Stage1 = ({
             className={styles.Btncont}
 
           >
-           {loading ? "CONTINUE..." : "SIGNUP"}
+            {loading ? "CONTINUE..." : "SIGNUP"}
           </button>
-        </div>       
-          <div  className={styles.Terms}>
-            <div className={styles.termPtag}>
-              <p>
-                Have an account?
-              </p>
-              <p
-                className={styles.Span}
-                  
-                  onClick={() => setPage(true)}
-                >
-                  Login
-                </p>
-            </div>
+        </div>
+        <div className={styles.Terms}>
+          <div className={styles.termPtag}>
+            <p>
+              Have an account?
+            </p>
+            <p
+              className={styles.Span}
+
+              onClick={() => setPage(true)}
+            >
+              Login
+            </p>
           </div>
-        
+        </div>
+
 
       </form>
     </div>
@@ -236,10 +242,11 @@ const Stage2 = ({
       setCount((count) => count - 1);
     }, 1000);
   }, []);
- // const toast = useToast();
+  // const toast = useToast();
   const handleOnchange = (value) => {
     setInvalid(false);
     setUserOtp(value);
+    console.log(userOtp)
   };
 
   const handleVeriryOtp = (e) => {
@@ -268,8 +275,80 @@ const Stage2 = ({
   };
 
   return (
-    <h1>hh</h1>
-    
+    <div>
+      <form onSubmit={handleVeriryOtp}>
+        <div className={styles.Flex}>
+
+
+          <h2 className={styles.h2Tag}>
+            Verify OTP
+          </h2>
+
+          <div className={styles.p1flexTag}>
+            <p className={styles.p1Tag}>
+              Provide OTP sent to&nbsp;
+            </p>
+            <p style={{ color: "black", fontWeight: "bold" }}>
+              {userDetails.mobile}
+            </p>&nbsp;
+            <p
+              style={{ color: "red", fontWeight: "bold", cursor: "pointer" }}
+              onClick={() => setStage(1)}
+            >
+              Edit
+            </p>
+          </div>
+
+
+          <label className={styles.Label}>One Time Password</label>
+
+          <div className={styles.otpFlex}>
+            <OTPInput
+              onChange={handleOnchange}
+              value={userOtp}
+              className={styles.inputStyle}
+              inputStyle="inputStyle"
+              numInputs={6}
+              renderSeparator={<span></span>}
+              renderInput={(props) => <input {...props} />}
+              required
+            />
+          </div>
+          <p
+            style={{ display: invalid ? "block" : "none" }}
+
+            className={styles.Msg}
+          >
+            Uh-oh! Incorrect OTP
+          </p>
+
+          {/* <Text fontSize={"13px"} mt="20px">
+                Resend in 0:30
+              </Text>
+              <Text
+                mt="20px"
+                color="#ff6f61"
+                fontWeight={"bold"}
+                cursor="pointer"
+                display={invalid ? "visible" : "none"}
+                // onClick={() => ResendOtp(1000)}
+              >
+                Resend OTP
+              </Text> */}
+          <button
+            className={`${styles.Btncont}  ${styles.Btnfill}`}
+            type={"submit"}
+            width={"100%"}
+            isLoading={loading}
+            loadingText="Verifying..."
+            colorScheme="orange"
+          >
+            DONE
+          </button>
+
+        </div>
+      </form>
+    </div>
   );
 };
 
@@ -300,68 +379,68 @@ const Stage3 = ({ setSuccessful, userDetails, setUserDetails }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <div className={styles.Flex}>
-          
-            
-              <h2 className={styles.h2Tag}>
-                Enter your personal details
-              </h2>
-            
-            
-              <p className={styles.p1Tag} >
-                We are almost ready! Just need your extra details
-              </p>
-            
-                <div className={styles.iptMain}>
-                  <label className={styles.Labal}>
-                    First Name{" "}*
-                  </label>
-                  <input
-                  className={styles.Inputs}
-                    name={"firstName"}
-                    value={userDetails.firstName}
-                    type={"text"}
-                    onChange={handleOnchange}
-                    required
-                  />
-                </div>
-                <div className={styles.iptMain}>
-                  <label className={styles.Labal}>
-                    Last Name{" "}*
-                  </label>
-                  <input
-                  className={styles.Inputs}
-                    name={"lastName"}
-                    value={userDetails.lastName}
-                    type={"text"}
-                    onChange={handleOnchange}
-                    required
-                  />
-                </div>
-           
-              <div className={styles.iptMain}>
-                <label className={styles.Labal}>
-                  Enter Email ID{" "}*
-                </label>
-                <input
-                className={styles.Inputs}
-                  name="email"
-                  value={userDetails.email}
-                  type={"email"}
-                  onChange={handleOnchange}
-                  required
-                />
-              </div>
-          
-            <button
+
+
+          <h2 className={styles.h2Tag}>
+            Enter your personal details
+          </h2>
+
+
+          <p className={styles.p1Tag} >
+            We are almost ready! Just need your extra details
+          </p>
+
+          <div className={styles.iptMain}>
+            <label className={styles.Labal}>
+              First Name{" "}*
+            </label>
+            <input
+              className={styles.Inputs}
+              name={"firstName"}
+              value={userDetails.firstName}
+              type={"text"}
+              onChange={handleOnchange}
+              required
+            />
+          </div>
+          <div className={styles.iptMain}>
+            <label className={styles.Labal}>
+              Last Name{" "}*
+            </label>
+            <input
+              className={styles.Inputs}
+              name={"lastName"}
+              value={userDetails.lastName}
+              type={"text"}
+              onChange={handleOnchange}
+              required
+            />
+          </div>
+
+          <div className={styles.iptMain}>
+            <label className={styles.Labal}>
+              Enter Email ID{" "}*
+            </label>
+            <input
+              className={styles.Inputs}
+              name="email"
+              value={userDetails.email}
+              type={"email"}
+              onChange={handleOnchange}
+              required
+            />
+          </div>
+
+          <button
             className={`${styles.Btncont}  ${styles.Btnfill}`}
-              width={"100%"}
-              isLoading={loading}
-              loadingText="Signing in..."
-              colorScheme="orange"
-            >
-              CONTINUE
-            </button>
-           
+            width={"100%"}
+            isLoading={loading}
+            loadingText="Signing in..."
+            colorScheme="orange"
+          >
+            CONTINUE
+          </button>
+
         </div>
       </form>
     </div>

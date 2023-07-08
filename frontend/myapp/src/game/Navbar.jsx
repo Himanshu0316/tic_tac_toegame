@@ -2,20 +2,23 @@ import React, { useEffect, useState } from 'react'
 import styles  from './style/Navbar.module.css'
 import logo from '../assets/tttlogo.webp'
 import Modal from './Modal'
+import { useSelector } from 'react-redux'
 const Navbar = () => {
-    const [isauth,setisauth] = useState(true)
+    //const [isauth,setisauth] = useState(true)
+    const { isAuth } = useSelector((store) => store.auth);
     const [show,setShow] = useState(false)
     const [page,setPage] = useState(false)
+    console.log(isAuth) 
+    console.log("h") 
     useEffect(()=>{
-           console.log(show) 
+           console.log(isAuth) 
     },[])
-    console.log(show) 
   return (
     <div className={styles.Navbar}>
         <div className={styles.Logo}>
             <img className={styles.LogoImage} src={logo} alt="logo" srcset="" />
         </div>
-        {isauth ? 
+        {!isAuth ? 
        <div className={styles.Loginbtn}>
              <button onClick={()=>{setShow(true); setPage(true);} }>Login</button>
              <p>|</p>
