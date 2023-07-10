@@ -2,14 +2,23 @@ import React, { useEffect, useState } from 'react'
 import styles  from './style/Navbar.module.css'
 import logo from '../assets/tttlogo.webp'
 import Modal from './Modal'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { userLogoutAPI } from '../store/authentication/auth.actions'
 const Navbar = () => {
     //const [isauth,setisauth] = useState(true)
     const { isAuth } = useSelector((store) => store.auth);
     const [show,setShow] = useState(false)
     const [page,setPage] = useState(false)
+    const dispatch = useDispatch();
     console.log(isAuth) 
     console.log("h") 
+    const handleLogout = ()=>{
+        dispatch(
+            userLogoutAPI(
+                JSON.parse(localStorage.getItem("currentLogin"))._id
+            )
+        );
+    }
     useEffect(()=>{
            console.log(isAuth) 
     },[])
@@ -29,7 +38,7 @@ const Navbar = () => {
                 <li className={styles.liD}><div className={styles.Logout}>hi,Himanshu</div>
                     <ul className={styles.ulDd}>
                         <li className={styles.liDd}>
-                        <button className={styles.Logout}>Logout</button>
+                        <button className={styles.Logout} onClick={()=>handleLogout()}>Logout</button>
                         </li>
                     </ul>
                 </li>
