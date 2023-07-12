@@ -1,17 +1,16 @@
 
 .Main{
-    
     max-width: none;
     padding: 0;
     /* margin:auto; */
 }
-.Mainbox{
+/* .Mainbox{
     margin-top: 100px;
     box-sizing: border-box;
     max-width: none;
     padding: 0;
-    /* margin:auto; */
-}
+   
+} */
 .h1Tag{
     text-align: center;
     margin-top: 100px;

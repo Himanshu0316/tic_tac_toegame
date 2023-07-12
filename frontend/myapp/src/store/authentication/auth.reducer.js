@@ -23,14 +23,7 @@ const initialState = {
   logout: {
     loading: false,
     error: false,
-  },
-  require: {
-    isOpenAuth: "",
-    onOpenAuth: "",
-    onCloseAuth: "",
-    method: "",
-    setMethod: "",
-  },
+  }
 };
 
 export const authReducer = (state = initialState, { type, payload }) => {
@@ -159,18 +152,6 @@ export const authReducer = (state = initialState, { type, payload }) => {
         logout: {
           loading: false,
           error: true,
-        },
-      };
-
-    case types.USER_REQUIRE_AUTH:
-      return {
-        ...state,
-        require: {
-          isOpenAuth: payload.isOpenAuth,
-          onOpenAuth: payload.onOpenAuth,
-          onCloseAuth: payload.onCloseAuth,
-          method: payload.method,
-          setMethod: payload.setMethod,
         },
       };
     default:

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { userLogoutAPI } from '../store/authentication/auth.actions'
 const Navbar = () => {
     //const [isauth,setisauth] = useState(true)
-    const { isAuth } = useSelector((store) => store.auth);
+    const { isAuth,userData } = useSelector((store) => store.auth);
     const [show,setShow] = useState(false)
     const [page,setPage] = useState(false)
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const Navbar = () => {
               </div>:
         <div className={styles.Logoutbtn}>
             <ul className={styles.ulD}>
-                <li className={styles.liD}><div className={styles.Logout}>hi,Himanshu</div>
+                <li className={styles.liD}><div className={styles.Logout}>Hello,{userData.firstName[0].toUpperCase()}</div>
                     <ul className={styles.ulDd}>
                         <li className={styles.liDd}>
                         <button className={styles.Logout} onClick={()=>handleLogout()}>Logout</button>
@@ -46,11 +46,8 @@ const Navbar = () => {
              {/* <button>Logout</button> */}
         </div>
         }
-        {/* {show ? */}
-         {/* <div className={styles.Popup}> */}
+        
         <Modal show={show} setShow={setShow} setPage={setPage} onClick={() => setShow(false)} page={page}/>
-        {/* </div> */}
-         {/* :""} */}
 
     </div>
   )

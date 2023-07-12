@@ -53,33 +53,24 @@
   }
   .Logoutbtn{
     height: 70px;
-    margin-right: 10px;
+    margin-right: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 150px;
+    position: relative;
   }
-  .Logoutbtn>button{
-    height: 50px;
-    background-color:dodgerblue;
-    color:white;
-    border-radius: 10px;
-    border: 0;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  .Logoutbtn>button:hover , .Loginbtn>button:hover{
-    opacity: 0.5;
-  }
-  .ulD{
   
+  .ulD{
+    position: relative;
     list-style: none;
     width: 150px;
     height: 70px;
+    left: 0;
   }
   .liD{
     text-align: center;
-    position: relative;
+    /* position: relative; */
     
     color: blue;
     width: 150px;
@@ -116,7 +107,7 @@
     background-color: black;
     color: yellowgreen;
 }
-.Popup{
+/* .Popup{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -124,4 +115,4 @@
   right: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
-}
+} */
