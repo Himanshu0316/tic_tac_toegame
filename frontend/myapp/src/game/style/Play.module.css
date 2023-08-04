@@ -1,0 +1,19 @@
+.Welcome{
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+}
+.gameBox{
+    width: 45%;
+    border: 1px solid red;
+}
+.Users{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}

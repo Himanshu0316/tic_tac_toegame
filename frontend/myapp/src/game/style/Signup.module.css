@@ -29,6 +29,7 @@
     margin-bottom: 20px;
 }
 .Btncont:hover{
+    cursor: pointer;
    outline: 2px solid orange;
    border: 2px solid white;
 }

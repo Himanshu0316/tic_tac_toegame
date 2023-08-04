@@ -2,3 +2,85 @@
     margin: auto;
     width: 100%;
 }
+.Welcome{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+}
+.Btncont{
+    
+    margin-top: 20px;
+    width: 200px;
+    color: white;
+    background-color: orange;
+    border: 0;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.Btncont:hover{
+    cursor: pointer;
+   outline: 2px solid orange;
+   border: 2px solid white;
+}
+.Btnjoin{
+    
+    
+    width: 40%;
+    color: white;
+    background-color: dodgerblue;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.Btnjoin:hover{
+    cursor: pointer;
+   opacity: 0.5;
+}
+.Joinipt{
+    outline: 0;
+    border: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 100%;
+    width: 60%;
+    text-align: center;
+    background-color: whitesmoke;
+}
+.flexRoom{
+    height: 30px;
+    outline: 1px solid dodgerblue;
+    min-width: 250px;
+    /* width: 300px; */
+
+    border-radius: 5px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Or{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    outline: 2px solid orange;
+    border: 2px solid white;
+}

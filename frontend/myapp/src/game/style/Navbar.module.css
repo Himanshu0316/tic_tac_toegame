@@ -23,7 +23,7 @@
     
 }
 @media (prefers-reduced-motion: no-preference) {
-    .Logo {
+    .LogoImage {
       animation: logo-spin infinite 20s linear;
     }
 }
@@ -50,6 +50,10 @@
     border: 0;
     font-weight: bold;
     font-size: 18px;
+  }
+  .Loginbtn>button:hover{
+    opacity: 0.5;
+    cursor: pointer;
   }
   .Logoutbtn{
     height: 70px;
@@ -103,7 +107,7 @@
    font-size: 18px;
 }
 .Logout:hover{
-
+    cursor: pointer;
     background-color: black;
     color: yellowgreen;
 }
