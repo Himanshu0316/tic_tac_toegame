@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from '../style/Play.module.css';
 import { useParams } from 'react-router';
  import Chat from './chat/Chat';
+ import Board from './board/Board';
 import io from 'socket.io-client'
-// import Board from './tc-toe Board/Board'
 let socket;
 const Play = () => {
   const { room_id } = useParams();
@@ -13,11 +13,6 @@ const Play = () => {
   useEffect(() => {
       socket = io(url, {transports: ['polling']});
       setSocketHasBeenInitialized(true);
-      //return to if user doesn not exist means someone cam here from illegal way 
-      // if (!user) {
-      //     return;
-      // }
-      //emit join user event to server with below parmas 
       socket.emit('join' , room_id );
       console.log("sss",room_id);
 
@@ -35,11 +30,7 @@ const Play = () => {
 
     <div className={styles.Welcome}>
         <div className={styles.gameBox}>
-              <div className={styles.Users}>
-                <p>You:<span>jjj</span></p>
-                <p>Opponent:<span>ggg</span></p>
-              </div>
-              {/* <Board socket={socket} room_id={room_id?room_id:''} /> */}
+              <Board socket={socket} room_id={room_id?room_id:''} />
             </div>
             <div className={styles.gameBox}>
             <Chat socket={socket} room_id={room_id?room_id:''} />

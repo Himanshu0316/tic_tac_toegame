@@ -1,0 +1,81 @@
+.BoardGame{
+    margin: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Board{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+  }
+  
+  ol, ul {
+    padding-left: 30px;
+  }
+  
+  .boardRow:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+  .Status {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: wheat;
+  }
+  
+  .Square {
+    color: black;
+    background:rgb(53, 53, 53);
+    color: wheat;
+    border: 1px solid #fff;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 6rem;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 6rem;
+  }
+  
+  .Square:focus {
+    outline: none;
+  }
+  
+  .kbdNavigation .Square:focus {
+    background: #ddd;
+  }
+  
+  .Game {
+    display: flex;
+    width: min-content;
+    flex-direction: row;
+  }
+  
+  .gameInfo {
+    margin-left: 20px;
+  }
+  
+    .inputButton {
+      background-color: #81cc00;
+      font-size: 1.3rem;
+      padding: 13px;
+      color: white;
+      margin: 25px 0px;
+      margin-right: 10px;
+      border-radius: 9px;    
+      outline: none;
+      border: none;
+      cursor: pointer;
+  }

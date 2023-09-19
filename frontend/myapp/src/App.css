@@ -2,9 +2,25 @@
   text-align: center;
   max-width: none;
   padding: 0;
+  background-color: var(--bg-clr);
 }
 /* *{
   width: 100%;
   margin: 0;
   padding: 0;
 } */
+.lightTheme{
+ --bg-clr:white;
+ --bx-sdw:rgba(0, 0, 0, 0.16) 0px 1px 4px;
+ --clse-btn:black;
+ --ipt-clr:white;
+}
+.darkTheme{
+  --bg-clr:#1a202c;
+  --bx-sdw:0px 5px 10px 0px rgba(0,255,255,0.7);
+  --clse-btn:white;
+  --ipt-clr:#2d3748;
+}
+body{
+  background-color: var(--bg-clr);
+}

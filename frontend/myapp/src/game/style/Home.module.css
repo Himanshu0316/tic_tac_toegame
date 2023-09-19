@@ -1,6 +1,7 @@
 .Home{
     margin: auto;
     width: 100%;
+    background-color: var(--bg-clr);
 }
 .Welcome{
     margin: auto;
@@ -9,6 +10,13 @@
     justify-content: space-around;
     align-items: center;
     border: 1px solid red;
+    background-color: var(--bg-clr);
+}
+.Welcomenot{
+    color: var(--clse-btn);
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 50px;
 }
 .Btncont{
     

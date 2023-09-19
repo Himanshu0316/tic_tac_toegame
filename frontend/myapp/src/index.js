@@ -7,18 +7,18 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
 import axios from "axios";
-//axios.defaults.baseURL = "https://tatabackend.vercel.app"; //new
+//axios.defaults.baseURL = "https://tictactoev01.vercel.app/"; //new
 axios.defaults.baseURL = "http://localhost:5000/";
 axios.defaults.headers["Content-Type"] = "application/json";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode> 
+  // </React.StrictMode> 
 );
 
 // If you want to start measuring performance in your app, pass a function

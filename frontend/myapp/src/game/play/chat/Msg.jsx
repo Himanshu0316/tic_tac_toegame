@@ -1,13 +1,13 @@
 import React from 'react'
-import './msg.css'
 
+import styles from '../../style/Chat.module.css';
 const Msg = ({ message, user }) => {
     
     if (user.id === message.user_id) {
         return (
-            <div className="row right-align">
-                <div className="right">
-                    <p className="sentbyme">
+            <div className={`${styles.Row} ${styles.rightAlign}`}>
+                <div className={styles.Right}>
+                    <p className={styles.Sentbyme}>
                         {message.name}: {message.text}
                     </p>
                 </div>
@@ -15,9 +15,9 @@ const Msg = ({ message, user }) => {
         )
     } else {
         return (
-            <div className="row left-align">
-                <div className="left">
-                    <p className="opponent">
+            <div className={`${styles.Row} ${styles.leftAlign}`}>
+                <div className={styles.Left}>
+                    <p className={styles.Opponent}>
                         {message.name}: {message.text}
                     </p>
                 </div>

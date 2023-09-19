@@ -7,6 +7,7 @@ import { auth } from "../firebase/config";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { userSignupAPI } from "../store/authentication/auth.actions";
+
 const Signup = ({ setPage, initialRef, finalRef, setSuccessful }) => {
   const [stage, setStage] = useState(1);
   const [userDetails, setUserDetails] = useState({
@@ -207,7 +208,7 @@ const Stage1 = ({
         </div>
         <div className={styles.Terms}>
           <div className={styles.termPtag}>
-            <p>
+            <p className={styles.l1pTag}>
               Have an account?
             </p>
             <p

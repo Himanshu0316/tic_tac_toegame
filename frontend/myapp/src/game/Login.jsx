@@ -187,7 +187,7 @@ const Stage1 = ({
       </div>       
         <div  className={styles.Terms}>
           <div className={styles.termPtag}>
-            <p>
+            <p className={styles.l1pTag}>
               If Not Registered?
             </p>
             <p

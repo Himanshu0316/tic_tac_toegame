@@ -3,6 +3,7 @@
     max-width: none;
     padding: 0;
     /* margin:auto; */
+    background-color: var(--bg-clr);
 }
 /* .Mainbox{
     margin-top: 100px;

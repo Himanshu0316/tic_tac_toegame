@@ -4,11 +4,13 @@ import logo from '../assets/tttlogo.webp'
 import Modal from './Modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogoutAPI } from '../store/authentication/auth.actions'
+import { FaSun , FaMoon} from "react-icons/fa6";
 const Navbar = () => {
     //const [isauth,setisauth] = useState(true)
     const { isAuth,userData } = useSelector((store) => store.auth);
     const [show,setShow] = useState(false)
     const [page,setPage] = useState(false)
+    const [theme,setTheme] = useState("lightTheme")
     const dispatch = useDispatch();
     console.log(isAuth) 
     console.log("h") 
@@ -19,13 +21,25 @@ const Navbar = () => {
             )
         );
     }
+
+    const themeChanger= ()=>{
+        if(theme==="darkTheme"){
+           setTheme("lightTheme")
+        }else{
+            setTheme("darkTheme")
+        }
+    }
     useEffect(()=>{
+        document.body.className = theme;
            console.log(isAuth) 
-    },[])
+    },[theme])
   return (
     <div className={styles.Navbar}>
         <div className={styles.Logo}>
             <img className={styles.LogoImage} src={logo} alt="logo" srcset="" />
+        </div>
+        <div className={styles.Modeicon} onClick={()=>themeChanger()}>
+            {theme == "darkTheme" ? <FaSun className={styles.Mode} /> : <FaMoon className={styles.Mode}/>}
         </div>
         {!isAuth ? 
        <div className={styles.Loginbtn}>
