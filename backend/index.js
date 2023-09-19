@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+//require('dotenv').config()
 const cors = require("cors");
 const path = require("path")
 const http = require("http");
@@ -16,7 +17,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 var jsonParser = bodyParser.json()
-
+//|| "mongodb://localhost:27017/";
 
 require("dotenv").config;
 const PORT = process.env.PORT || 5000;
